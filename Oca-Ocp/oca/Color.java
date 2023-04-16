@@ -1,2 +1,7 @@
-package oca;public enum Color {
+package oca;
+
+public enum Color {
+    Blue,
+    Red,
+    Yellow
 }

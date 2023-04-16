@@ -15,25 +15,25 @@ public class StudentController {
     //build rest api to handle query parameters
     //localhost:8080/student/query?firstName=Ellie&lastName=syd
     @GetMapping("/student/query")
-    public Student getStudents(@RequestParam(value = "name", defaultValue = "Ellie")String name
+    public Student getStudents(@RequestParam(value = "id" , defaultValue = "1")String id,@RequestParam(value = "name", defaultValue = "Ellie")String name
             , @RequestParam(value = "lastName", defaultValue = "syd") String lastName){
-               return new Student(name,lastName);
+               return new Student(id, name,lastName);
     }
 
     //localhost:8080/student1/query?firstName=Ellie&lastName=syd
     @GetMapping("/student1/query")
     public Student getStudent1(@RequestParam(name = "firstName") String firstName
             , @RequestParam(name = "lastName") String lastName){
-        return new Student(firstName,lastName);
+        return new Student(id, firstName,lastName);
     }
 
     @GetMapping("/students")
     public List<Student> getStudents(){
         List<Student> students = new ArrayList<>();
-        students.add(new Student("Sina", "Ebrahimi"));
-        students.add(new Student("nina", "Seyed"));
-        students.add(new Student("Mans", "Has"));
-        students.add(new Student("Mehdi", "ardabil"));
+        students.add(new Student(id, "Sina", "Ebrahimi"));
+        students.add(new Student(id, "nina", "Seyed"));
+        students.add(new Student(id, "Mans", "Has"));
+        students.add(new Student(id, "Mehdi", "ardabil"));
         return students;
     }
 
@@ -42,7 +42,7 @@ public class StudentController {
     @GetMapping("/student/{firstName}/{lastName}")
     public Student studentPathVariable(@PathVariable("firstName") String firstName
             ,@PathVariable("lastName") String lastName){
-        return new Student(firstName,lastName);
+        return new Student(id, firstName,lastName);
     }
 
 
